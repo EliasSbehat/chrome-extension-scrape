@@ -10,7 +10,7 @@ chrome.runtime.onMessage.addListener(
                 var item = list[i];
                 var sub_top = $(item).children().children().children().children();
                 var fir_data = $(sub_top).children()[0];
-                var external_url = site + $(fir_data).find("a").attr("href");
+                var external_url = $(fir_data).find("a").attr("href");
                 var image_link = $(fir_data).find("img").attr("src");
                 var name;
                 var vendor = "";
