@@ -10,7 +10,6 @@ chrome.runtime.onMessage.addListener(
                 var item = list[j];
                 var sub_top = $(item).children().children().children().children();
                 var fir_data = $(sub_top).children()[0];
-                var image_link = $(fir_data).find("img").attr("src");
                 $(fir_data).find("img").addClass("attachclass"+j);
                 var element = document.querySelector('.attachclass'+j);
                 // CREATING AN EVENT FOR HOVER
