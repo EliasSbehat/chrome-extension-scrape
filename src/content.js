@@ -37,36 +37,36 @@ chrome.runtime.onMessage.addListener(
                     var parsePattern = largest.split("/")[0];
                     highest_image = largest_img.replace(parsePattern, "originals");
                     var confirmExist = await confirmExistImage(highest_image);
-                    if (confirmExist.msg=="no-exist") {
+                    if (confirmExist.msg == "no-exist") {
                         highest_image = highest_image.replace("originals", "736x");
                         var confirmExist2 = await confirmExistImage(highest_image);
-                        if (confirmExist2.msg=="no-exist") {
+                        if (confirmExist2.msg == "no-exist") {
                             highest_image = highest_image.replace("736x", "564x");
                             var confirmExist3 = await confirmExistImage(highest_image);
-                            if (confirmExist3.msg=="no-exist") {
+                            if (confirmExist3.msg == "no-exist") {
                                 highest_image = image_link;
                             }
                         }
                     }
                     var name;
                     var vendor = "";
-                    if (i === 0) {
-                        var vendor_div = $(fir_data).find("a");
-                        var vendor_a_len = vendor_div.length;
-                        var ven_div = $(vendor_div)[vendor_a_len - 1];
-                        var e_link = $(vendor_div)[vendor_a_len - 3];
+                    var name_div = $(fir_data).find("a");
+                    if (name_div.length==3) {
+                        var name_len = name_div.length;
+                        var name_d = name_div[name_len - 1];
+                        var e_link = name_div[name_len - 2];
                         external_link = $(e_link).attr("href");
-                        var vendors = $(ven_div).children()[0];
-                        vendor = $(vendors).text();
-                        var name_div = $(ven_div).parent().parent().children()[0];
-                        name = $(name_div).text();
+                        name = $(name_d).text();
                     } else {
-                        var name_div = $(fir_data).find("a");
                         var name_len = name_div.length;
                         var name_d = name_div[name_len - 2];
                         var e_link = name_div[name_len - 3];
+                        var vendor_d = name_div[name_len - 1];
                         external_link = $(e_link).attr("href");
                         name = $(name_d).text();
+                        if (img.length > 1) {
+                            vendor = $(vendor_d).text();
+                        }
                     }
                     var myObject = {
                         name: name,
