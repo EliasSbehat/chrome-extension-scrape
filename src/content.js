@@ -51,6 +51,7 @@ chrome.runtime.onMessage.addListener(
                     var name;
                     var vendor = "";
                     var name_div = $(fir_data).find("a");
+                    console.log(name_div);
                     if (name_div.length==3) {
                         var name_len = name_div.length;
                         var name_d = name_div[name_len - 1];
