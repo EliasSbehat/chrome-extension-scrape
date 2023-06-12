@@ -58,6 +58,12 @@ chrome.runtime.onMessage.addListener(
                         var e_link = name_div[name_len - 2];
                         external_link = $(e_link).attr("href");
                         name = $(name_d).text();
+                    } else if (name_div.length==5) {
+                        var name_len = name_div.length;
+                        var name_d = name_div[name_len - 3];
+                        var e_link = name_div[name_len - 4];
+                        external_link = $(e_link).attr("href");
+                        name = $(name_d).text();
                     } else {
                         var name_len = name_div.length;
                         var name_d = name_div[name_len - 2];
